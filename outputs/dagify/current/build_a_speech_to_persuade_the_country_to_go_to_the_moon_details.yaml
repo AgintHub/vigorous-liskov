@@ -1,0 +1,101 @@
+dag_type: plain_text
+description: A workflow to devise a persuasive speech to convince a country to send
+  humans to the moon
+name: build_a_speech_to_persuade_the_country_to_go_to_the_moon
+nodes:
+  choose_enticing_analogy:
+    agent: false
+    description: Find a relevant analogy to make the case more relatable
+    name: choose_enticing_analogy
+    nodes_depended_on:
+    - define_speech_topic
+    nodes_dependent_on: []
+    prompt: Research an analogy or a historical event that illustrates the benefits
+      of innovation and human exploration (e.g., the Great Leap Forward or the Apollo
+      missions). Consider an analogy that directly relates to the moon mission and
+      will captivate your audience.
+  define_speech_topic:
+    agent: false
+    description: Identify a compelling topic related to a moon mission
+    name: define_speech_topic
+    nodes_depended_on: []
+    nodes_dependent_on: []
+    prompt: Choose a focused, attention-grabbing topic for your speech on a moon mission.
+      The topic should be related to the potential benefits of a moon presence (e.g.,
+      resource extraction, scientific discovery, stepping stone for Mars).
+  develop_speech_outline:
+    agent: false
+    description: Create a basic structure for the speech
+    name: develop_speech_outline
+    nodes_depended_on:
+    - define_speech_topic
+    nodes_dependent_on: []
+    prompt: Based on your chosen topic, sketch a simple outline for the speech with
+      key points, transition between sections, and an introduction. Allocate one-
+      to two-sentence description to each point.
+  edit_speech:
+    agent: false
+    description: Revise the speech to improve its flow and clarity
+    name: edit_speech
+    nodes_depended_on:
+    - write_speech_contents
+    nodes_dependent_on: []
+    prompt: Finalize your speech by refining its structure, word choice, and sentence
+      organization. Ensure a clear start, middle, and conclusion, along with logical
+      connections between ideas. Use an active voice and concise wording.
+  identify_emotional_triggers:
+    agent: false
+    description: Find relevant emotional triggers to engage the audience
+    name: identify_emotional_triggers
+    nodes_depended_on:
+    - define_speech_topic
+    nodes_dependent_on: []
+    prompt: Consider how your chosen topic resonates with the audience emotionally.
+      Identify any key emotional triggers (e.g., patriotism, curiosity) that will
+      motivate them to support your cause. Write down 2-3 key emotional triggers that
+      can be incorporated into the speech.
+  practice_speech:
+    agent: false
+    description: Rehearse the speech to perfect delivery
+    name: practice_speech
+    nodes_depended_on:
+    - proofread_speech
+    nodes_dependent_on: []
+    prompt: Rehearse the speech before an audience of friends or in front of a mirror.
+      Speak out loud to practice tone, pace, and clarity. Develop confidence in delivering
+      your message effectively.
+  proofread_speech:
+    agent: false
+    description: Check for any remaining errors in the speech
+    name: proofread_speech
+    nodes_depended_on:
+    - edit_speech
+    nodes_dependent_on: []
+    prompt: Verify that your speech is free of typos, poor grammar, and confusing
+      sentences. Use spell-checking software, proofreading guidelines, and a neutral
+      party's review to polish your speech content.
+  select_key_stats:
+    agent: false
+    description: Gather key statistics to back up speech claims
+    name: select_key_stats
+    nodes_depended_on:
+    - define_speech_topic
+    nodes_dependent_on: []
+    prompt: Search for any statistical evidence or insights (e.g., resource availability,
+      potential economic returns) to support your arguments for a moon mission. Identify
+      specific stats that will be critical for making a persuasive case. Include at
+      least three key statistics.
+  write_speech_contents:
+    agent: false
+    description: Develop the full speech based on prior steps
+    name: write_speech_contents
+    nodes_depended_on:
+    - develop_speech_outline
+    - select_key_stats
+    - choose_enticing_analogy
+    - identify_emotional_triggers
+    nodes_dependent_on: []
+    prompt: Integrate all your prior work into the speech, utilizing your basic outline
+      and incorporating all relevant details (e.g., statistics, emotional triggers,
+      analogy). Address the introduction, body, and conclusion thoroughly, keeping
+      your message concise and engaging. Provide details in concise sentences.
